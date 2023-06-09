@@ -17,7 +17,6 @@ public interface AWSIoTDeviceProxy {
     @POST
     @Path("/{deviceRef}/shadow")
     Uni<JsonObject> publishState(
-            @HeaderParam("x-amz-security-token") String xAmzSecurityToken,
             @HeaderParam("x-amz-date") String xAmzDate,
             @HeaderParam("authorization") String authorization,
             @PathParam("deviceRef") String deviceRef,

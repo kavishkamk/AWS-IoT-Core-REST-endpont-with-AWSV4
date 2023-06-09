@@ -26,7 +26,6 @@ public class AWSV4Auth {
 
         private final String accessKeyID;
         private final String secretAccessKey;
-        private final String secToken;
         private String regionName;
         private String serviceName;
         private String httpMethodName;
@@ -36,10 +35,9 @@ public class AWSV4Auth {
         private String payload;
         private boolean debug = false;
 
-        public Builder(String accessKeyID, String secretAccessKey, String secToken) {
+        public Builder(String accessKeyID, String secretAccessKey) {
             this.accessKeyID = accessKeyID;
             this.secretAccessKey = secretAccessKey;
-            this.secToken = secToken;
         }
 
         public Builder regionName(String regionName) {
@@ -89,7 +87,6 @@ public class AWSV4Auth {
 
     private String accessKeyID;
     private String secretAccessKey;
-    private String secToken;
     private String regionName;
     private String serviceName;
     private String httpMethodName;
@@ -108,7 +105,6 @@ public class AWSV4Auth {
 
     private AWSV4Auth(Builder builder) {
         accessKeyID = builder.accessKeyID;
-        secToken = builder.secToken;
         secretAccessKey = builder.secretAccessKey;
         regionName = builder.regionName;
         serviceName = builder.serviceName;
@@ -239,7 +235,6 @@ public class AWSV4Auth {
      */
     public Map<String, String> getHeaders() {
         awsHeaders.put("x-amz-date", xAmzDate);
-        awsHeaders.put("x-amz-security-token", secToken);
 
         /* Execute Task 1: Create a Canonical Request for Signature Version 4. */
         String canonicalURL = prepareCanonicalRequest();
@@ -252,7 +247,6 @@ public class AWSV4Auth {
 
         if (signature != null) {
             Map<String, String> header = new HashMap<>(0);
-            header.put("x-amz-security-token", secToken);
             header.put("x-amz-date", xAmzDate);
             header.put("authorization", buildAuthorizationString(signature));
 
@@ -366,12 +360,11 @@ public class AWSV4Auth {
      * @date 16th March 2017
      * @git #1
      */
-    private String encodeParameter(String param){
+    private String encodeParameter(String param) {
         try {
             return URLEncoder.encode(param, StandardCharsets.UTF_8);
         } catch (Exception e) {
             return URLEncoder.encode(param);
         }
     }
-
 }

@@ -15,7 +15,7 @@ import java.util.TreeMap;
 @ApplicationScoped
 public class StatePublisher {
 
-   StatePublisherConfig publisherConfig;
+	StatePublisherConfig publisherConfig;
 
 	@RestClient
 	private final AWSIoTDeviceProxy awsIoTDeviceProxy;
@@ -44,7 +44,7 @@ public class StatePublisher {
 		}
 
 		return awsIoTDeviceProxy
-				.publishState(headers.get("x-amz-security-token"), headers.get("x-amz-date"), headers.get("authorization"),
+				.publishState(headers.get("x-amz-date"), headers.get("authorization"),
 						deviceRef, shadowConfig.deviceShadow(),  payload)
 				.onItem()
 				.transformToUni(response -> {
@@ -66,7 +66,7 @@ public class StatePublisher {
 
 		String regionServiceName = "iotdata";
 		AWSV4Auth awsV4Auth =
-				new AWSV4Auth.Builder( publisherConfig.awsAccessKeyId(), publisherConfig.awsSecretKey(), publisherConfig.sessionToken())
+				new AWSV4Auth.Builder( publisherConfig.awsAccessKeyId(), publisherConfig.awsSecretKey())
 						.regionName(publisherConfig.region())
 						.serviceName(regionServiceName)
 						.httpMethodName(httpMethodName)
@@ -80,3 +80,4 @@ public class StatePublisher {
 	}
 
 }
+

@@ -9,5 +9,4 @@ public interface StatePublisherConfig {
     String region();
     String awsAccessKeyId();
     String awsSecretKey();
-    String sessionToken();
 }

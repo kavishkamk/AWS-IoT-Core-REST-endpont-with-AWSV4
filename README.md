@@ -4,7 +4,7 @@ This project is basically used to connect AWS IoT core service Device Shadow usi
 So to connect it this project use AWSV4. 
 
 * In <b>application.properties</b> file should configure the valid data for you AWS IoT core device shadow and Your account.
-* We use <b>AWS Access Key ID</b>, <b>AWS Secret Access Key</b>, <b>AWS Session Token
+* We use <b>AWS Access Key ID</b>, <b>AWS Secret Access Key</b>
 </b>
 * Also change other properties available in the application.property file
 * For this we use <b>shadow1</b> as a shadow name
