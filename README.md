@@ -9,7 +9,7 @@ So to connect it this project use AWSV4.
 * Also change other properties available in the application.property file
 * For this we use <b>shadow1</b> as a shadow name
 
-
+Reference: https://www.javaquery.com/2016/01/aws-version-4-signing-process-complete.html
 
 # awsv4-auth-with-quarkus
 
