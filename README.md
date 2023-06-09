@@ -1,13 +1,17 @@
 # AWS IoT Core REST end pont with AWSV4
 
 This project is basically used to connect AWS IoT core service Device Shadow using its Rest end point. 
-So to connect it this project use AWSV4. 
+So to connect it this project use AWSV4.
 
 * In <b>application.properties</b> file should configure the valid data for you AWS IoT core device shadow and Your account.
 * We use <b>AWS Access Key ID</b>, <b>AWS Secret Access Key</b>, <b>AWS Session Token
 </b>
 * Also change other properties available in the application.property file
 * For this we use <b>shadow1</b> as a shadow name
+
+## AWSV4 Without using Security token
+
+branch : https://github.com/kavishkamk/AWS-IoT-Core-REST-endpont-with-AWSV4/tree/awsv4-without-sec-token
 
 Reference: https://www.javaquery.com/2016/01/aws-version-4-signing-process-complete.html
 
